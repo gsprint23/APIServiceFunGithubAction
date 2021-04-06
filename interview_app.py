@@ -1,6 +1,7 @@
 # we are going to use a micro web framework called Flask
 # goal is to create a web app for our simple /predict API service
 import pickle 
+import os 
 from flask import Flask, jsonify, request 
 
 app = Flask(__name__)
@@ -78,4 +79,5 @@ if __name__ == "__main__":
     # Heroku is going to build the Docker image (and register it)
     # 2.C. define main.yml and push your source code to Github and a Github Action builds
     # the image and pushes the image to the registry (e.g. Heroku's registry)
-    app.run(debug=True) # TODO: set debug=False before deployment!!
+    port = os.environ.get("PORT", 5000) # Heroku will set the PORT environment variable for web traffic
+    app.run(debug=False, host="0.0.0.0", port=port) # set debug=False before deployment!!
