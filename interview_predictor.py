@@ -5,7 +5,9 @@ import json # lib used for working with JSON objects
 # the API accepts 4 key value pairs
 # level, lang, tweets, phd
 # returns a prediction of whether the candidate interview well (True) or not (False)
-url = "http://127.0.0.1:5000/predict?level=Junior&lang=Java&tweets=yes&phd=yes"
+#url = "http://127.0.0.1:5000/predict?level=Junior&lang=Java&tweets=yes&phd=yes"
+url = "https://interview-app-gina.herokuapp.com/predict?level=Junior&lang=Java&tweets=yes&phd=no"
+
 
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods 
 response = requests.get(url)
